@@ -2,9 +2,11 @@ package com.SBI.ATM.service;
 
 import com.SBI.ATM.entity.Account;
 import com.SBI.ATM.repository.AccountRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class AccountService {
     @Autowired
@@ -15,6 +17,7 @@ public class AccountService {
     {
         acc.setBalance(0.0);
         repo.save(acc);
+        log.info("Account created successfully");
         return "Account created successfully";
     }
 
@@ -24,6 +27,7 @@ public class AccountService {
         Account acc = repo.findById(id).get();
         acc.setBalance(acc.getBalance() + depamount);
         repo.save(acc);
+        log.info("Account deposited successfully");
         return "Credited"+depamount+"successfully";
     }
     //transferring amount from one account to another account
@@ -41,12 +45,14 @@ public class AccountService {
         toAcc.setBalance(toAcc.getBalance() + tamount);
         repo.save(fromAcc);
         repo.save(toAcc);
+        log.info("Account transferred successfully");
         return "Transferred successfully";
     }
 
     //check balance
     public Double checkBalance(Long id)
     {
+        log.info("Checking balance successfully");
         return repo.findById(id).get().getBalance();
     }
 }
