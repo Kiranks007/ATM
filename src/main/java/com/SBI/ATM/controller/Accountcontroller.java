@@ -2,9 +2,11 @@ package com.SBI.ATM.controller;
 
 import com.SBI.ATM.entity.Account;
 import com.SBI.ATM.service.AccountService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/atm")
 public class Accountcontroller {
@@ -23,6 +25,7 @@ public class Accountcontroller {
     @PutMapping("/deposit/{id}/{depAmount}")
     public String Deposit(@PathVariable Long id, @PathVariable double depAmount)
     {
+        log.info("deposit successfully");
         return service.Deposit(id, depAmount);
     }
 

@@ -7,11 +7,14 @@ import lombok.Data;
 @Table(name="SBI-USERS")
 @Data
 public class Account {
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String gender;
-    private double balance;
     private String creditCard;
+    private double points;
 }
