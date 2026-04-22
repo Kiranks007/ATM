@@ -14,4 +14,5 @@ public class Account {
     private String gender;
     private double balance;
     private String creditCard;
+    private double points;
 }
