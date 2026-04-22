@@ -11,11 +11,9 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
     private String email;
     private String gender;
-
         private double balance;
     private String creditCard;
-
+    private double points;
 }
